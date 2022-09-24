@@ -15,5 +15,5 @@ function GetStarships(name) {
     return axios_1.default.get(`https://swapi.dev/api/starships?search=${name}`);
 }
 GetStarships('Republic attack cruiser').then((response) => {
-    // console.log(response.data)
+    console.log(response.data);
 });

@@ -3,7 +3,6 @@ import axios  from "axios"
 
 // Todas as Starships
 
-
 function getAllStarships():Promise<any>{
     return axios.get(`https://swapi.dev/api/starships`)
 }
@@ -14,13 +13,12 @@ getAllStarships().then((response) => {
 })
 
 
-
 function GetStarships(name:string):Promise<StarshipsData>{
     return axios.get(`https://swapi.dev/api/starships?search=${name}`)
 }
 
 GetStarships('Republic attack cruiser').then((response) => {
-    // console.log(response.data)
+     console.log(response.data)
 })
 
 
