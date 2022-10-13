@@ -1,15 +1,16 @@
 // Dados Abertos
+//entrypoint api - https://dadosabertos.camara.leg.br/api/v2/proposicoes/id
+// Informações detalhadas sobre uma proposição específica
+// https://dadosabertos.camara.leg.br/api/v2/proposicoes/${id}
 
 import axios  from "axios";
 
 
 function getPreposicao(id:number):Promise<Proposicoes> {
     return axios.get(`https://dadosabertos.camara.leg.br/api/v2/proposicoes/${id}`)
-       
+
 }
 
-
-// Trazendo proposicoes por ID
 getPreposicao(17465).then((response:Proposicoes) => {
     console.log("Id da Preposição: " , response.data.dados.id)
     console.log("Partido: " ,response.data.dados.siglaTipo)
@@ -87,6 +88,6 @@ interface Proposicoes {
             urnFinal: string;
             texto: string;
             justificativa: string;
-        }
+        },
     }
 }
