@@ -2,7 +2,6 @@
 
 
 import axios from "axios";
-// import {response} from "express";
 
 
 const express = require('express')
@@ -34,6 +33,14 @@ app.get('/blocos/:id', (req:any, res:any) => {
 app.get('/deputados', (req:any, res:any) => {
     axios.get(`https://dadosabertos.camara.leg.br/api/v2/deputados`).then((response:any) => {
         res.json(response.data)
+    })
+})
+
+// Deputados por ID
+app.get('/deputados/:id',(req:any, res:any) => {
+    const  id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/deputados/${id}`).then((response:any) => {
+        res.json(response.data.dados)
     })
 })
 
