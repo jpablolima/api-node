@@ -7,7 +7,7 @@ function  getFromDeputados(id:number):Promise<Deputados> {
     return  axios.get(`https://dadosabertos.camara.leg.br/api/v2/deputados/${id}`)
 }
 
-getFromDeputados().then((response) => {
+getFromDeputados(204521).then((response) => {
     //console.log(response.data.dados.id)
    // console.log(response.data.dados.uri)
     console.log("Nome Civil:",response.data.dados.nomeCivil)

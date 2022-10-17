@@ -1,12 +1,15 @@
 {
   "dependencies": {
     "axios": "^0.27.2",
+    "express": "^4.18.2",
     "i": "^0.3.7",
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "build" : "tsc",
-    "start": "nodemon build/deputados.js"
+    "build": "tsc",
+    "start": "nodemon build/main.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.0"
   }
-
 }
