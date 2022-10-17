@@ -12,6 +12,16 @@ app.get('/', (req:any, res:any) => {
     res.send('Hello, World')
 })
 
+
+app.get('/blocos', (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/blocos`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+
+
+// Trazendo resumo das Proposições
 app.get('/proposicoes', (req:any, res:any) => {
     axios.get(`https://dadosabertos.camara.leg.br/api/v2/proposicoes`).then((response:any) => {
         res.json(response.data)
