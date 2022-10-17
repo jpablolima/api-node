@@ -13,13 +13,21 @@ app.get('/', (req:any, res:any) => {
 })
 
 
+
+// Blocos
 app.get('/blocos', (req:any, res:any) => {
     axios.get(`https://dadosabertos.camara.leg.br/api/v2/blocos`).then((response:any) => {
         res.json(response.data)
     })
 })
 
-
+// Blocos detalhes
+app.get('/blocos/:id', (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/blocos/${id}`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
 
 // Trazendo resumo das Proposições
 app.get('/proposicoes', (req:any, res:any) => {
@@ -28,8 +36,7 @@ app.get('/proposicoes', (req:any, res:any) => {
     })
 })
 
-
-
+// Proposições detalhadas
 app.get("/proposicoes/:id",(req:any, res:any) => {
     const id = req.params.id
     axios.get(`https://dadosabertos.camara.leg.br/api/v2/proposicoes/${id}`).then((response:any) => {
