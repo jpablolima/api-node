@@ -56,6 +56,17 @@ app.get('/deputados/:id/despesas',  (req:any, res:any) => {
 
 
 
+
+// Discursos dos parlamentares 
+app.get('/deputados/:id/discursos', (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/deputados/${id}/discursos`).then((response) =>{
+        res.json(response.data.dados)
+    })
+})
+
+
+
 // Trazendo resumo das Proposições
 app.get('/proposicoes', (req:any, res:any) => {
     axios.get(`https://dadosabertos.camara.leg.br/api/v2/proposicoes`).then((response:any) => {
