@@ -2,6 +2,7 @@
 
 
 import axios from "axios";
+import { read } from "fs";
 
 
 const express = require('express')
@@ -78,6 +79,39 @@ app.get('/deputados/:id/frentes', (req:any, res:any) => {
     axios.get(`https://dadosabertos.camara.leg.br/api/v2/deputados/${id}/frentes`).then((response) => {
         res.json(response.data.dados)
     }) 
+})
+
+// Ocupações
+app.get('/deputados/:id/ocupacoes', (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/deputados/${id}/ocupacoes`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+// Orgãos
+app.get('/deputados/:id/orgaos', (req:any, res:any)  => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/deputados/${id}/orgaos`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Profissões
+app.get('/deputados/:id/profissoes', (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/deputados/${id}/profissoes`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Lideres
+app.get('/legislaturas/:id/lideres', (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/legislaturas/${id}/lideres`).then((response) => {
+        res.json(response.data.dados)
+    })
 })
 
 
