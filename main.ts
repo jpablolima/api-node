@@ -114,6 +114,17 @@ app.get('/legislaturas/:id/lideres', (req:any, res:any) => {
     })
 })
 
+// Mesa
+// app.get('/legislaturas/:id/mesa', (req:any, res:any) => {
+//     const id = req.params.id
+//     axios.get(`https://dadosabertos.camara.leg.br/api/v2/legislaturas/${id}/mesa`).then((response) => {
+//         res.json(response.data.dados)
+//     })
+// })
+
+
+
+
 
 
 // Trazendo resumo das Proposições
