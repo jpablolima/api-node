@@ -177,6 +177,11 @@ app.get("/legislaturas/:id/mesa",(req:any, res:any) => {
 
 
 
+app.get('/partidos', (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/partidos`)
+})
+
+
 // Trazendo resumo das Proposições
 app.get('/proposicoes', (req:any, res:any) => {
     axios.get(`https://dadosabertos.camara.leg.br/api/v2/proposicoes`).then((response:any) => {
