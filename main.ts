@@ -116,6 +116,35 @@ app.get('/legislaturas/:id/lideres', (req:any, res:any) => {
 
 
 
+
+// Frente Parlamentar 
+
+app.get("/frentes", (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/frentes/`).then((response) => {
+        res.json(response.data.dados)
+    })  
+})
+
+// Frente Parlamentar por ID
+app.get("/frentes/:id", (req:any, res:any) =>{
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/frentes/${id}`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+
+// Frentes Parlementar/membros 
+app.get("/frentes/:id/membros", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/frentes/${id}/membros`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+
 // Trazendo resumo das Proposições
 app.get('/proposicoes', (req:any, res:any) => {
     axios.get(`https://dadosabertos.camara.leg.br/api/v2/proposicoes`).then((response:any) => {
