@@ -144,6 +144,38 @@ app.get("/frentes/:id/membros", (req:any, res:any) => {
 })
 
 
+// Legislatura 
+app.get("/legislaturas", (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/legislaturas/`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+app.get("/legislaturas/:id", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/legislaturas/${id}`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+app.get("/legislaturas/:id/lideres", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/legislaturas/${id}/lideres`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+app.get("/legislaturas/:id/mesa",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/legislaturas/${id}/mesa`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+
 
 // Trazendo resumo das Proposições
 app.get('/proposicoes', (req:any, res:any) => {
