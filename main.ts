@@ -204,6 +204,23 @@ app.get("/partidos/:id", (req:any, res:any) => {
 })
 
 
+// Deputados Lideres dos Partidos 
+
+app.get("/partidos/:id/lideres", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/partidos/${id}/lideres`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+app.get("/partidos/:id/membros", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/partidos/${id}/membros`).then((response) => {
+        res.json(response.data.dados)
+
+    })
+})
 
 
 
