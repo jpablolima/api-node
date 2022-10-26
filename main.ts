@@ -187,10 +187,41 @@ app.get("/legislaturas/:id/mesa",(req:any, res:any) => {
 })
 
 
-
+// Partidos
 app.get('/partidos', (req:any, res:any) => {
-    axios.get(`https://dadosabertos.camara.leg.br/api/v2/partidos`)
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/partidos`).then((response) => {
+
+        res.json(response.data.dados)
+    })
 })
+
+// Partidos po ID
+app.get("/partidos/:id", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/partidos/${id}`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+// Deputados Lideres dos Partidos 
+
+app.get("/partidos/:id/lideres", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/partidos/${id}/lideres`).then((response) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+app.get("/partidos/:id/membros", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/partidos/${id}/membros`).then((response) => {
+        res.json(response.data.dados)
+
+    })
+})
+
 
 
 // Trazendo resumo das Proposições
