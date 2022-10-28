@@ -124,10 +124,6 @@ app.get('/legislaturas/:id/lideres', (req:any, res:any) => {
 
 
 
-
-
-
-
 // Frente Parlamentar 
 
 app.get("/frentes", (req:any, res:any) => {
@@ -231,6 +227,8 @@ app.get('/proposicoes', (req:any, res:any) => {
     })
 })
 
+
+
 // Proposições detalhadas
 app.get("/proposicoes/:id",(req:any, res:any) => {
     const id = req.params.id
@@ -239,6 +237,32 @@ app.get("/proposicoes/:id",(req:any, res:any) => {
     })
 })
 
+
+// Proposições por Autores
+app.get("/proposicoes/:id/autores", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/proposicoes/${id}/autores`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+
+//  Relacionadas
+app.get("/proposicoes/:id/relacionadas", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/proposicoes/${id}/relacionadas`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// temas
+app.get("/proposicoes/:id/temas", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/proposicoes/${id}/temas`).then((response:any) =>  {
+        res.json(response.data.dados)
+    })
+})
 
 
 
