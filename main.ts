@@ -265,7 +265,13 @@ app.get("/proposicoes/:id/temas", (req:any, res:any) => {
 })
 
 
-
+// Tramitações
+app.get("/proposicoes/:id/tramitacoes", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/proposicoes/${id}/tramitacoes`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
 
 
 
