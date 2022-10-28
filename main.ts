@@ -273,7 +273,13 @@ app.get("/proposicoes/:id/tramitacoes", (req:any, res:any) => {
     })
 })
 
-
+// Votações
+app.get("/proposicoes/:id/votacoes", (req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/proposicoes/${id}/votacoes`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
 
 
 
