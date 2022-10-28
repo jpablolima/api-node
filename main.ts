@@ -282,6 +282,72 @@ app.get("/proposicoes/:id/votacoes", (req:any, res:any) => {
 })
 
 
+// CodSituação
+app.get("/referencias/proposicoes/codSituacao", (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/proposicoes/codSituacao`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+// CodeTema
+app.get("/referencias/proposicoes/codTema", (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/proposicoes/codTema`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+// CodTipoAutor
+app.get("/referencias/proposicoes/codTipoAutor", (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/proposicoes/codTipoAutor`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+//codTipoTramitacao
+app.get("/referencias/proposicoes/codTipoTramitacao", (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/proposicoes/codTipoTramitacao`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+//siglaTipo
+app.get("/referencias/proposicoes/siglaTipo", (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/proposicoes/siglaTipo`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+//situacoesProposicao
+app.get("/referencias/situacoesProposicao", (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/situacoesProposicao`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+
+
+//tiposAutor
+app.get("/referencias/tiposAutor", (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/tiposAutor`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+//tiposProposicao
+app.get("/referencias/tiposProposicao", (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/tiposProposicao`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+
+//tiposTramitacao
+app.get("/referencias/tiposTramitacao", (req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/tiposTramitacao`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
 
 app.listen(port, () => {
     console.log(`Server running in port http://localhost:${port}`)
