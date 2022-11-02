@@ -380,6 +380,39 @@ app.get("/referencias/deputados/siglaUF",(req:any, res:any) => {
 })
 
 
+// Votações
+app.get("/votacoes",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/votacoes`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+// Votações por ID
+app.get("/votacoes/:id",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/votacoes/${id}`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+// Votações Orientações
+app.get("/votacoes/:id/orientacoes",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/votacoes/${id}/orientacoes`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Votações Votos
+app.get("/votacoes/:id/votos",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/votacoes/${id}/votos`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+
 
 
 app.listen(port, () => {
