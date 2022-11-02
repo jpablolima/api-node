@@ -341,12 +341,45 @@ app.get("/referencias/tiposProposicao", (req:any, res:any) => {
 })
 
 
-//tiposTramitacao
+//tiposTramitação
 app.get("/referencias/tiposTramitacao", (req:any, res:any) => {
     axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/tiposTramitacao`).then((response:any) => {
         res.json(response.data)
     })
 })
+
+
+// Referências
+// Referências Deputados
+app.get("/referencias/deputados",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/deputados`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+
+// Referências CodSituação
+app.get("/referencias/deputados/codSituacao",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/deputados/codSituacao`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+// Referências CodTipoProfissão
+app.get("/referencias/deputados/codTipoProfissao",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/deputados/codTipoProfissao`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+// Referências SiglaUF
+app.get("/referencias/deputados/siglaUF",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/deputados/siglaUF`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+
 
 
 app.listen(port, () => {
