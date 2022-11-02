@@ -412,6 +412,66 @@ app.get("/votacoes/:id/votos",(req:any, res:any) => {
     })
 })
 
+// Órgãos
+app.get("/orgaos/",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/orgaos`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+// Orgãos por ID
+app.get("/orgaos/:id",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/orgaos/${id}`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Orgãos por Eventos
+app.get("/orgaos/:id/eventos",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/orgaos/${id}/eventos`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Orgãos membros parlamentares
+app.get("/orgaos/:id/membros",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/orgaos/${id}/membros`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Orgãos por Votações
+app.get("/orgaos/:id/votacoes",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/orgaos/${id}/votacoes`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Orgãos por codSituacao
+app.get("/referencias/orgaos/codSituacao",(req:any, res:any) => {
+//    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/orgaos/codSituacao`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Orgãos por Situação de Orgãos
+app.get("/referencias/situacoesOrgao",(req:any, res:any) => {
+    //    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/situacoesOrgao`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+
+
+
+
 
 
 
