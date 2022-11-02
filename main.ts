@@ -341,12 +341,138 @@ app.get("/referencias/tiposProposicao", (req:any, res:any) => {
 })
 
 
-//tiposTramitacao
+//tiposTramitação
 app.get("/referencias/tiposTramitacao", (req:any, res:any) => {
     axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/tiposTramitacao`).then((response:any) => {
         res.json(response.data)
     })
 })
+
+
+// Referências
+// Referências Deputados
+app.get("/referencias/deputados",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/deputados`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+
+// Referências CodSituação
+app.get("/referencias/deputados/codSituacao",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/deputados/codSituacao`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+// Referências CodTipoProfissão
+app.get("/referencias/deputados/codTipoProfissao",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/deputados/codTipoProfissao`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+// Referências SiglaUF
+app.get("/referencias/deputados/siglaUF",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/deputados/siglaUF`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+
+// Votações
+app.get("/votacoes",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/votacoes`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+// Votações por ID
+app.get("/votacoes/:id",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/votacoes/${id}`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+// Votações Orientações
+app.get("/votacoes/:id/orientacoes",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/votacoes/${id}/orientacoes`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Votações Votos
+app.get("/votacoes/:id/votos",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/votacoes/${id}/votos`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Órgãos
+app.get("/orgaos/",(req:any, res:any) => {
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/orgaos`).then((response:any) => {
+        res.json(response.data)
+    })
+})
+
+// Orgãos por ID
+app.get("/orgaos/:id",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/orgaos/${id}`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Orgãos por Eventos
+app.get("/orgaos/:id/eventos",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/orgaos/${id}/eventos`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Orgãos membros parlamentares
+app.get("/orgaos/:id/membros",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/orgaos/${id}/membros`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Orgãos por Votações
+app.get("/orgaos/:id/votacoes",(req:any, res:any) => {
+    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/orgaos/${id}/votacoes`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Orgãos por codSituacao
+app.get("/referencias/orgaos/codSituacao",(req:any, res:any) => {
+//    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/orgaos/codSituacao`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+// Orgãos por Situação de Orgãos
+app.get("/referencias/situacoesOrgao",(req:any, res:any) => {
+    //    const id = req.params.id
+    axios.get(`https://dadosabertos.camara.leg.br/api/v2/referencias/situacoesOrgao`).then((response:any) => {
+        res.json(response.data.dados)
+    })
+})
+
+
+
+
+
+
+
 
 
 app.listen(port, () => {
